@@ -1,0 +1,25 @@
+.product-list {
+    display: flex;
+    align-items: start;
+}
+
+.add-to-cart-button {
+    margin-bottom: 20%;
+    border-radius: 15px;
+    border: none;
+    background-color: lightblue;
+}
+
+.add-to-cart-button:hover {
+    background-color: lightgreen;
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: all 0.4s ease-in-out;
+}
+
+.product-list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
