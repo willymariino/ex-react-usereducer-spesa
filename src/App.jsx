@@ -69,6 +69,7 @@ function App() {
   return (
     <>
 
+
       <h1>lista della spesa</h1>
 
       <ul>
@@ -93,7 +94,7 @@ function App() {
       <ul>
         {addedProducts.map((p, index) => (
 
-          <li key={index}>
+          <li key={index} className="product-list">
             {p.name}: {p.price}, {p.quantity}
 
           </li>
