@@ -76,7 +76,7 @@ function App() {
 
           <li key={index} className="product-list">
             <div className="product-list-container">
-              <span className="product-label"> {product.name}: {product.price} € </span>
+              {product.name}: {product.price} €
 
               <button onClick={() => addToCart(product)} className="add-to-cart-button">
                 aggiungi al carrello
