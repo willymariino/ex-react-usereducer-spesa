@@ -86,13 +86,13 @@ function App() {
 
 
   // Funzione per incrementare la quantità di un prodotto nel carrello
-  const updateProductQuantity = (productName) => {
+  const updateProductQuantity = (cartProduct) => {
 
     setAddedProducts(curr => {
 
       return curr.map(p => {
 
-        if (p.name === productName) {
+        if (p.name === cartProduct) { // 
           return {
             ...p,
             quantity: p.quantity + 1
@@ -109,8 +109,8 @@ function App() {
   }
 
   // Funzione per rimuovere un prodotto dal carrello
-  const removeFromCart = (productName) => {
-    setAddedProducts(curr => curr.filter(p => p.name !== productName))
+  const removeFromCart = (cartProduct) => {
+    setAddedProducts(curr => curr.filter(p => p.name !== cartProduct))
   }
 
   // Calcolo del totale da pagare sommando prezzo * quantità per ogni prodotto
@@ -130,7 +130,6 @@ function App() {
 
             <div className="product-list">
 
-              {/* Nome e prezzo prodotto */}
               {product.name}: {product.price} €
 
               <button onClick={() => addToCart(product)} className="add-to-cart-button">
@@ -174,7 +173,6 @@ function App() {
 
       </ul>
 
-      {/* Totale da pagare */}
       <h3>totale da pagare: {totalToPay.toFixed(2)}€</h3>
     </>
   )
