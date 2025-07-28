@@ -88,6 +88,10 @@ function App() {
   const removeFromCart = (productName) => {
     setAddedProducts(curr => curr.filter(p => p.name !== productName))
   }
+
+  const totalToPay = addedProducts.reduce((acc, p) => acc + (p.price * p.quantity), 0)
+
+
   return (
     <>
 
@@ -132,7 +136,7 @@ function App() {
         ))}
       </ul>
 
-
+      <h3>totale da pagare: {totalToPay.toFixed(2)}€</h3>
 
     </>
   )

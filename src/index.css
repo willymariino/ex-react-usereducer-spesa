@@ -47,4 +47,15 @@
         text-align: center;
         margin-left: 13%;
     }
+
+    .cart-list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .increase-quantity-btn {
+        max-width: 130px;
+        margin-bottom: 15px;
+    }
 }
