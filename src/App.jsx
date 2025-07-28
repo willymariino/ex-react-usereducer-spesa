@@ -120,6 +120,10 @@ function App() {
               incrementa quantità
             </button>
 
+            <button onClick={() => removeFromCart(p.name)} className="increase-quantity-btn">
+              rimuovi dal carrello
+            </button>
+
           </li>
 
         ))}
