@@ -1,4 +1,4 @@
-.product-list {
+.product-list-container {
     display: flex;
     align-items: start;
 }
@@ -17,7 +17,7 @@
     transition: all 0.4s ease-in-out;
 }
 
-.product-list-container {
+.product-list {
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -37,7 +37,7 @@
 }
 
 @media screen and (max-width: 480px) {
-    .product-list {
+    .product-list-container {
         display: flex;
         justify-content: center;
     }

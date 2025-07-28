@@ -101,8 +101,8 @@ function App() {
       <ul>
         {products.map((product, index) => (
 
-          <li key={index} className="product-list">
-            <div className="product-list-container">
+          <li key={index} className="product-list-container">
+            <div className="product-list">
               {product.name}: {product.price} €
 
               <button onClick={() => addToCart(product)} className="add-to-cart-button">
