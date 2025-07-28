@@ -41,8 +41,10 @@ import { useState } from "react";
 
 function App() {
 
+  // Stato locale che rappresenta i prodotti aggiunti al carrello
   const [addedProducts, setAddedProducts] = useState([])
 
+  // Array dei prodotti disponibili
   const products = [
     { name: 'Mela', price: 0.5 },
     { name: 'Pane', price: 1.2 },
@@ -50,79 +52,114 @@ function App() {
     { name: 'Pasta', price: 0.7 },
   ];
 
+  // Funzione per aggiungere un prodotto al carrello
   const addToCart = product => {
+
+    // Verifica se il prodotto è già stato aggiunto
     const isProductAlreadyAdded = addedProducts.some(p => p.name === product.name)
+
     if (isProductAlreadyAdded) {
+      // Se già presente, incrementa la quantità
       updateProductQuantity(product.name)
       return
     }
 
+    // Se non presente, aggiungi il prodotto con quantità 1
     const productToAdd = {
       ...product,
       quantity: 1
-
     }
 
+    // Aggiorna lo stato aggiungendo il nuovo prodotto al carrello
+    // Usa lo spread operator per creare un nuovo array con i prodotti esistenti + quello nuovo
     setAddedProducts(curr => [...curr, productToAdd])
 
+    /*
+     È importante perché:
+      Immutabilità: crea un nuovo array, non modifica quello originale
+      Reattività: fa scattare il re-render del componente
+      Pulizia: mantiene il pattern prev => new standard di useState
+    */
   }
 
+
+
+
+  // Funzione per incrementare la quantità di un prodotto nel carrello
   const updateProductQuantity = (productName) => {
+
     setAddedProducts(curr => {
+
       return curr.map(p => {
+
         if (p.name === productName) {
           return {
             ...p,
             quantity: p.quantity + 1
           }
-        } else {
+        }
+
+        else {
           return p
         }
 
       })
 
-
     })
   }
 
+  // Funzione per rimuovere un prodotto dal carrello
   const removeFromCart = (productName) => {
     setAddedProducts(curr => curr.filter(p => p.name !== productName))
   }
 
+  // Calcolo del totale da pagare sommando prezzo * quantità per ogni prodotto
   const totalToPay = addedProducts.reduce((acc, p) => acc + (p.price * p.quantity), 0)
-
 
   return (
     <>
 
-
       <h1>lista della spesa</h1>
 
+      {/* Lista dei prodotti disponibili */}
       <ul>
+
         {products.map((product, index) => (
 
           <li key={index} className="product-list-container">
+
             <div className="product-list">
+
+              {/* Nome e prezzo prodotto */}
               {product.name}: {product.price} €
 
               <button onClick={() => addToCart(product)} className="add-to-cart-button">
                 aggiungi al carrello
               </button>
+
             </div>
+
           </li>
 
-        ))}
+        ))} {/* chiusura di products.map */}
 
       </ul>
 
+
       <h2>il tuo carrello acquisti</h2>
 
+
+      {/* Lista dei prodotti selezionati e messi nel carrello */}
+
       <ul>
+
         {addedProducts.map((p, index) => (
 
           <li key={index} className="cart-list">
 
             {p.name}: {p.price} €, quantità: {p.quantity}
+
+
             <button onClick={() => updateProductQuantity(p.name)} className="increase-quantity-btn">
               incrementa quantità
             </button>
@@ -134,12 +171,13 @@ function App() {
           </li>
 
         ))}
+
       </ul>
 
+      {/* Totale da pagare */}
       <h3>totale da pagare: {totalToPay.toFixed(2)}€</h3>
-
     </>
   )
 }
 
-export default App 
+export default App
