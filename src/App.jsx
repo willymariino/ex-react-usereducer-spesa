@@ -85,6 +85,9 @@ function App() {
     })
   }
 
+  const removeFromCart = (productName) => {
+    setAddedProducts(curr => curr.filter(p => p.name !== productName))
+  }
   return (
     <>
 
@@ -115,7 +118,7 @@ function App() {
 
           <li key={index} className="cart-list">
 
-            {p.name}: {p.price}, {p.quantity}
+            {p.name}: {p.price} €, quantità: {p.quantity}
             <button onClick={() => updateProductQuantity(p.name)} className="increase-quantity-btn">
               incrementa quantità
             </button>

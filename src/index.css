@@ -33,7 +33,7 @@
 }
 
 .cart-list {
-    padding-bottom: 3%;
+    padding-bottom: 20px;
 }
 
 @media screen and (max-width: 480px) {
