@@ -53,6 +53,7 @@ function App() {
   const addToCart = product => {
     const isProductAlreadyAdded = addedProducts.some(p => p.name === product.name)
     if (isProductAlreadyAdded) {
+      updateProductQuantity(product.name)
       return
     }
 
@@ -64,6 +65,24 @@ function App() {
 
     setAddedProducts(curr => [...curr, productToAdd])
 
+  }
+
+  const updateProductQuantity = (productName) => {
+    setAddedProducts(curr => {
+      return curr.map(p => {
+        if (p.name === productName) {
+          return {
+            ...p,
+            quantity: p.quantity + 1
+          }
+        } else {
+          return p
+        }
+
+      })
+
+
+    })
   }
 
   return (
@@ -94,8 +113,12 @@ function App() {
       <ul>
         {addedProducts.map((p, index) => (
 
-          <li key={index} className="product-list">
+          <li key={index} className="cart-list">
+
             {p.name}: {p.price}, {p.quantity}
+            <button onClick={() => updateProductQuantity(p.name)} className="increase-quantity-btn">
+              incrementa quantità
+            </button>
 
           </li>
 

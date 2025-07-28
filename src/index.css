@@ -24,6 +24,18 @@
     align-items: center;
 }
 
+.increase-quantity-btn {
+    margin-left: 15px;
+    border-radius: 15px;
+    border: none;
+    background-color: lightblue;
+    cursor: pointer;
+}
+
+.cart-list {
+    padding-bottom: 3%;
+}
+
 @media screen and (max-width: 480px) {
     .product-list {
         display: flex;
