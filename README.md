@@ -30,4 +30,4 @@
 
 ---
 
-    live-demo:[react-grocery-shopping-list](https://react-grocery-shopping-list.netlify.app/)
+live-demo:[react-grocery-shopping-list](https://react-grocery-shopping-list.netlify.app/)
