@@ -86,13 +86,13 @@ function App() {
 
 
   // Funzione per incrementare la quantità di un prodotto nel carrello
-  const updateProductQuantity = (cartProduct) => {
+  const updateProductQuantity = (cartProduct) => {  // cartProduct rappresenta il nome del prodotto già nel carrello, di cui vogliamo aumentare la quantità.
 
     setAddedProducts(curr => {
 
-      return curr.map(p => {
+      return curr.map(p => {  // uso .map per scorrere ogni prodotto nel carrello, di cui p è ogni singolo prodotto
 
-        if (p.name === cartProduct) { // 
+        if (p.name === cartProduct) { // qui vedo se il prodotto nel carrello che sto scorrendo ha lo stesso nome del prodotto selezionato, se true, aggiungo + 1 alla quantità
           return {
             ...p,
             quantity: p.quantity + 1
@@ -100,7 +100,7 @@ function App() {
         }
 
         else {
-          return p
+          return p // altrimenti se non è il prodotto che voglio aggiornare, lo lascio invariato
         }
 
       })
