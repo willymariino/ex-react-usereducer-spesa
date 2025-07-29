@@ -132,7 +132,7 @@ function App() {
 
               {product.name}: {product.price} €
 
-              <button onClick={() => addToCart(product)} className="add-to-cart-button">
+              <button onClick={() => addToCart(product)} className="add-to-cart-button"> {/* qui passo l'intero oggetto product dato che devo aggiungerlo interamente al carrello. */}
                 aggiungi al carrello
               </button>
 
@@ -159,11 +159,11 @@ function App() {
             {p.name}: {p.price} €, quantità: {p.quantity}
 
 
-            <button onClick={() => updateProductQuantity(p.name)} className="increase-quantity-btn">
+            <button onClick={() => updateProductQuantity(p.name)} className="increase-quantity-btn"> {/*qui passo solo la proprietà '.name' (cioè il valore stringa "mela" ad esempio) perchè mi basta il nome per identificare quale prodotto aggiornare. */}
               incrementa quantità
             </button>
 
-            <button onClick={() => removeFromCart(p.name)} className="increase-quantity-btn">
+            <button onClick={() => removeFromCart(p.name)} className="increase-quantity-btn"> {/* stessa cosa anche per filter */}
               rimuovi dal carrello
             </button>
 
