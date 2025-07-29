@@ -56,7 +56,7 @@ function App() {
   const addToCart = product => {
 
     // Verifica se il prodotto è già stato aggiunto
-    const isProductAlreadyAdded = addedProducts.some(p => p.name === product.name)
+    const isProductAlreadyAdded = addedProducts.some(p => p.name === product.name) // `p` è ogni **prodotto nel carrello** (viene da `.some()) - product è il `product` è un **oggetto prodotto** appena cliccato, da aggiungere al carrello
 
     if (isProductAlreadyAdded) {
       // Se già presente, incrementa la quantità
@@ -86,7 +86,7 @@ function App() {
 
 
   // Funzione per incrementare la quantità di un prodotto nel carrello
-  const updateProductQuantity = (cartProduct) => {  // cartProduct rappresenta il nome del prodotto già nel carrello, di cui vogliamo aumentare la quantità.
+  const updateProductQuantity = (cartProduct) => {  // cartProduct rappresenta il nome del prodotto già nel carrello, di cui vogliamo aumentare la quantità, ed è solo una **stringa** (es: "Mela"), usata per confronti
 
     setAddedProducts(curr => {
 
